@@ -1,0 +1,38 @@
+// Здесь нужно посмотреть текущее содержимое Service.tsx
+// Давайте сначала посмотрим на файл
+cat src/components/common/services/Service.tsx
+# Ищем другие варианты названий кнопок с проектами
+grep -r "Все проекты" src/ --include="*.tsx" --include="*.jsx"
+grep -r "проект" src/ --include="*.tsx" --include="*.jsx" -i
+grep -r "portfolio" src/ --include="*.tsx" --include="*.jsx" -A 2 -B 2
+# Посмотрим полное содержимое Service.tsx
+cat src/components/common/services/Service.tsx
+# Ищем ArrowLink компонент с текстом связанным с проектами
+grep -r "ArrowLink" src/ --include="*.tsx" --include="*.jsx" -A 3 -B 1
+# Смотрим текущий page.tsx
+cat src/app/page.tsx
+# Создаем новый page.tsx без Experience
+cat > src/app/page.tsx.new << 'EOF'
+"use server";
+import VCardSectionsLayout from "@/components/common/global/VCardSectionsLayout";
+import Contact from "@/components/sections/Contact";
+import Home from "@/components/sections/Home";
+import About from "@/components/sections/v-card-sections/About";
+import Services from "@/components/sections/v-card-sections/Services";
+
+const Page = () => {
+  return (
+    <>
+      <Home />
+
+      <VCardSectionsLayout>
+        <Services />
+        <About />
+      </VCardSectionsLayout>
+
+      <Contact />
+    </>
+  );
+};
+
+export default Page;
