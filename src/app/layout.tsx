@@ -55,9 +55,8 @@ export default function RootLayout({
 
 
                 <SmoothScrollingProvider>{children} 
-  <NavLinks />
-</SmoothScrollingProvider>
-         
+  </SmoothScrollingProvider>
+         <NavLinks />
               </ServiceContextProvider>
             </ProjectContextProvider>
           </CursorContextProvider>
