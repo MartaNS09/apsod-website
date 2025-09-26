@@ -17,6 +17,7 @@ import { SmoothScrollingProvider } from "@/context/SmoothScrollingProvider";
 import { ThemeVariantsContextProvider } from "@/context/ThemeVariantsContext";
 import VariantsPanel from "@/components/common/global/panels/VariantsPanel";
 import ThemePanel from "@/components/common/global/panels/ThemePanel";
+import NavLinks from "@/components/common/global/NavLinks";
 
 const font = Jost({
   subsets: ["latin"],
@@ -53,8 +54,10 @@ export default function RootLayout({
                 {variants_panel ? <VariantsPanel /> : null}
 
 
-                <SmoothScrollingProvider>{children}</SmoothScrollingProvider>
-                 <NavLinks /> 
+                <SmoothScrollingProvider>{children} 
+  <NavLinks />
+</SmoothScrollingProvider>
+         
               </ServiceContextProvider>
             </ProjectContextProvider>
           </CursorContextProvider>
