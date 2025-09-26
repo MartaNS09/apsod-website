@@ -52,9 +52,9 @@ export default function RootLayout({
                 {theme_panel ? <ThemePanel /> : null}
                 {variants_panel ? <VariantsPanel /> : null}
 
-                {/* <NavLinks /> */}
 
                 <SmoothScrollingProvider>{children}</SmoothScrollingProvider>
+                 <NavLinks /> 
               </ServiceContextProvider>
             </ProjectContextProvider>
           </CursorContextProvider>
