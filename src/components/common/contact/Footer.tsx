@@ -1,3 +1,4 @@
+"use client";
 import { personal_data } from "@/data/home";
 import SocialLinks from "../global/SocialLinks";
 

@@ -1,3 +1,6 @@
+"use client";
+import { cn } from "@/lib/utils";
+
 const SectionTitle = ({
   title,
   description,
@@ -5,18 +8,13 @@ const SectionTitle = ({
   title: string;
   description?: string;
 }) => {
-  const animate = true;
   return (
-    <h1 className="relative md:text-8xl sm:text-6xl text-5xl mb-24 select-none ease-out font-black text-center w-fit mx-auto">
-      <span className="absolute position-center md:size-48 sm:size-32 size-24 bg-[var(--border)] rounded-full z-[-1] opacity-35" />
-
-      {title}
-      {description ? (
-        <p className="text-lg tracking-wide font-semibold mt-4">
-          {description}
-        </p>
-      ) : null}
-    </h1>
+    <div className="flex flex-col gap-4">
+      <h2 className="text-3xl font-bold">{title}</h2>
+      {description && (
+        <p className={cn("text-lg opacity-70")}>{description}</p>
+      )}
+    </div>
   );
 };
 

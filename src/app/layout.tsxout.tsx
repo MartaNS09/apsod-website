@@ -10,21 +10,14 @@ import {
   variants_panel,
 } from "@/data/config";
 import { Analytics } from "@vercel/analytics/next";
-import { ProjectContextProvider } from 
-"@/context/ProjectContext";
-import ProjectDialog from 
-"@/components/common/projects/ProjectDialog";
-import { ServiceContextProvider } from 
-"@/context/ServiceContext";
-import { SmoothScrollingProvider } from 
-"@/context/SmoothScrollingProvider";
-import { ThemeVariantsContextProvider } from 
-"@/context/ThemeVariantsContext";
-import VariantsPanel from 
-"@/components/common/global/panels/VariantsPanel";
-import ThemePanel from 
-"@/components/common/global/panels/ThemePanel";
-import NavLinks from "@/components/common/global/NavLinks";
+import { ProjectContextProvider } from "@/context/ProjectContext";
+import ProjectDialog from "@/components/common/projects/ProjectDialog";
+import { ServiceContextProvider } from "@/context/ServiceContext";
+import { SmoothScrollingProvider } from "@/context/SmoothScrollingProvider";
+import { ThemeVariantsContextProvider } from "@/context/ThemeVariantsContext";
+import VariantsPanel from "@/components/common/global/panels/VariantsPanel";
+import ThemePanel from "@/components/common/global/panels/ThemePanel";
+import NavLinks from "@/components/common/global/NavLinks"; 
 
 const font = Jost({
   subsets: ["latin"],
@@ -44,8 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(dark_theme ? "dark" : "", 
-"")}>
+    <html lang="en" className={cn(dark_theme ? "dark" : "", "")}>
       <body
         className={cn(
           font.className,
@@ -61,10 +53,15 @@ export default function RootLayout({
                 {theme_panel ? <ThemePanel /> : null}
                 {variants_panel ? <VariantsPanel /> : null}
 
-                <NavLinks />
 
-                
-<SmoothScrollingProvider>{children}</SmoothScrollingProvider>
+                <SmoothScrollingProvider>{children}
+ 
+                  {/* Навигация с иконками - фиксированная внизу 
+слева */}
+                  <div className="fixed bottom-8 left-8 z-40">
+                    <NavLinks />
+                  </div>
+  </SmoothScrollingProvider>
               </ServiceContextProvider>
             </ProjectContextProvider>
           </CursorContextProvider>

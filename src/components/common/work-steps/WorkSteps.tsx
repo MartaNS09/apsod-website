@@ -14,13 +14,14 @@ const WorkSteps = () => {
     {
       number: "2", 
       title: "Стратегия и план",
-      description: "Разрабатываем детальную стратегию продвижения, включая каналы, бюджет и временные рамки."    },
+      description: "Разрабатываем детальную стратегию продвижения, включая каналы, бюджет и временные рамки.",
+    },
     {
-  number: "3",
-  title: "SEO-оптимизация и продвижение", 
-  description: "Повышаем видимость вашего сайта в поисковых системах, работаем над органическим трафиком и позициями.",
-},                                                               
-{
+      number: "3",
+      title: "SEO-оптимизация и продвижение", 
+      description: "Повышаем видимость вашего сайта в поисковых системах, работаем над органическим трафиком и позициями.",
+    },
+    {
       number: "4",
       title: "Оптимизация и рост",
       description: "Постоянно анализируем результаты, оптимизируем кампании для максимальной эффективности.",
@@ -41,7 +42,6 @@ const WorkSteps = () => {
 
   return (
     <div className="work-steps-container">
-      {/* Упрощенный заголовок */}
       <div className="mb-8 text-center">
         <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
           5 этапов работы
@@ -51,20 +51,16 @@ const WorkSteps = () => {
         </p>
       </div>
 
-      {/* Блок с этапами */}
       <div className="steps-grid grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {steps.map((step, index) => (
           <div
             key={index}
             className={cn(
               "step-card group relative p-6 rounded-2xl border border-[var(--border-secondary)] bg-[var(--bg-primary)] transition-all duration-500 hover:border-[var(--main)] hover:shadow-lg",
-              activeStep === index
-                ? "border-[var(--main)] shadow-lg"
-                : ""
+              activeStep === index ? "border-[var(--main)] shadow-lg" : ""
             )}
             onMouseEnter={() => setActiveStep(index)}
           >
-            {/* Номер этапа */}
             <div className="flex items-center justify-between mb-4">
               <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
                 Этап {step.number}
@@ -79,17 +75,14 @@ const WorkSteps = () => {
               </div>
             </div>
 
-            {/* Заголовок этапа */}
             <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-[var(--main)] transition-colors">
               {step.title}
             </h3>
 
-            {/* Описание этапа */}
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               {step.description}
             </p>
 
-            {/* Индикатор активного состояния */}
             <div
               className={cn(
                 "absolute bottom-0 left-0 h-1 bg-[var(--main)] transition-all duration-500",
